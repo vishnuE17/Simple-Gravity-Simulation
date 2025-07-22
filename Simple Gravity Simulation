@@ -1,0 +1,58 @@
+import pygame
+import sys
+
+# Initialize Pygame
+pygame.init()
+
+# Set up the display
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Simple Gravity Simulation")
+
+# Colors
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
+# Ball properties
+ball_radius = 20
+ball_x = WIDTH // 2
+ball_y = 100  # Start above ground
+ball_velocity_y = 0  # Initial vertical velocity
+gravity = 0.5  # Pixels per frame^2 (gravity acceleration)
+ground_y = HEIGHT - ball_radius  # Ground level
+bounce_damping = 0.8  # Energy loss on bounce (80% of velocity retained)
+
+# Game loop
+clock = pygame.time.Clock()
+running = True
+
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Apply gravity
+    ball_velocity_y += gravity  # Accelerate downward
+    ball_y += ball_velocity_y  # Update position
+
+    # Check for collision with ground
+    if ball_y > ground_y:
+        ball_y = ground_y  # Snap to ground
+        ball_velocity_y *= -bounce_damping  # Reverse velocity with damping
+
+    # Clear screen
+    screen.fill(WHITE)
+
+    # Draw ball
+    pygame.draw.circle(screen, RED, (int(ball_x), int(ball_y)), ball_radius)
+
+    # Update display
+    pygame.display.flip()
+
+    # Control frame rate
+    clock.tick(60)  # 60 FPS
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
