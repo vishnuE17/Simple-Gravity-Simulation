@@ -43,16 +43,3 @@ while running:
 
     # Clear screen
     screen.fill(WHITE)
-
-    # Draw ball
-    pygame.draw.circle(screen, RED, (int(ball_x), int(ball_y)), ball_radius)
-
-    # Update display
-    pygame.display.flip()
-
-    # Control frame rate
-    clock.tick(60)  # 60 FPS
-
-# Quit Pygame
-pygame.quit()
-sys.exit()
