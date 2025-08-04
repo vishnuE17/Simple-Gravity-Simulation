@@ -1,0 +1,7 @@
+    # Check for collision with ground
+    if ball_y > ground_y:
+        ball_y = ground_y  # Snap to ground
+        ball_velocity_y *= -bounce_damping  # Reverse velocity with damping
+
+    # Clear screen
+    screen.fill(WHITE)
