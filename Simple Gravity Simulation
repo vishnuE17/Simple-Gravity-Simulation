@@ -32,8 +32,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # Apply gravity
-    ball_velocity_y += gravity  # Accelerate downward
-    ball_y += ball_velocity_y  # Update position
+
 
 
