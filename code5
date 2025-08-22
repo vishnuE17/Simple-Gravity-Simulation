@@ -1,0 +1,8 @@
+# Ball properties
+ball_radius = 20
+ball_x = WIDTH // 2
+ball_y = 100  # Start above ground
+ball_velocity_y = 0  # Initial vertical velocity
+gravity = 0.5  # Pixels per frame^2 (gravity acceleration)
+ground_y = HEIGHT - ball_radius  # Ground level
+bounce_damping = 0.8  # Energy loss on bounce (80% of velocity retained)
